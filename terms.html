@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Use | Bloom</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a1a1a;
+            background: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        nav {
+            background: white;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 1.25rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover { color: #f3d114; }
+
+        .nav-links a.active {
+            color: #f3d114;
+            font-weight: 600;
+        }
+
+        .nav-cta {
+            background: #f3d114;
+            color: #000;
+            padding: 0.75rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .nav-cta:hover {
+            background: #d9b910;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #1a1a1a;
+            transition: all 0.3s;
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem 3rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 2rem 5rem;
+        }
+
+        .content h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 3rem 0 1rem;
+            color: #000;
+        }
+
+        .content h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: #000;
+        }
+
+        .content p {
+            font-size: 1.05rem;
+            color: #404040;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .content ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .content li {
+            font-size: 1.05rem;
+            color: #404040;
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+
+        .effective-date {
+            background: #fafafa;
+            padding: 1rem 1.5rem;
+            border-left: 4px solid #f3d114;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #f3d114;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-section a {
+            color: #999;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover { color: #f3d114; }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 73px;
+                right: -100%;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                transition: right 0.3s;
+                gap: 1.5rem;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-cta {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="Bloom_logo.png" alt="Bloom" style="height: 45px;">
+            </a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html" class="nav-cta">Book a Call</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Terms of Use</h1>
+        <p>Terms and conditions for using this website</p>
+    </section>
+
+    <section class="content">
+        <div class="effective-date">
+            <strong>Effective Date:</strong> 11 February 2026<br>
+            <strong>Last Updated:</strong> 11 February 2026
+        </div>
+
+        <p>These Terms of Use ("Terms") govern your access to and use of the joinbloom.tech website (the "Website"). By accessing or using the Website, you agree to be bound by these Terms.</p>
+
+        <h2>1. Acceptance of Terms</h2>
+        <p>By accessing this Website, you confirm that you accept these Terms and agree to comply with them. If you do not agree to these Terms, you must not use this Website.</p>
+
+        <h2>2. Website Use</h2>
+        <p>This Website provides information about Bloom's fractional pipeline management services. You may use the Website for lawful purposes only.</p>
+        
+        <h3>2.1 Permitted Use</h3>
+        <ul>
+            <li>View and download content for personal, non-commercial use</li>
+            <li>Contact us through provided forms and email addresses</li>
+            <li>Use calculators and tools provided on the Website</li>
+        </ul>
+
+        <h3>2.2 Prohibited Use</h3>
+        <p>You must not:</p>
+        <ul>
+            <li>Copy, reproduce, or distribute Website content without permission</li>
+            <li>Modify or create derivative works from Website content</li>
+            <li>Use the Website in any way that could damage, disable, or impair it</li>
+            <li>Attempt to gain unauthorized access to the Website or its systems</li>
+            <li>Use automated systems (bots, scrapers) to access the Website</li>
+            <li>Transmit any harmful code, viruses, or malicious software</li>
+            <li>Use the Website for any unlawful purpose</li>
+        </ul>
+
+        <h2>3. Intellectual Property</h2>
+        <p>All content on this Website, including text, graphics, logos, images, and software, is the property of Bloom or its licensors and is protected by UK and international copyright laws.</p>
+        <p>The Bloom name and logo are trademarks of Bloom. You may not use these without our prior written consent.</p>
+
+        <h2>4. Information Accuracy</h2>
+        <p>We strive to ensure information on this Website is accurate and up-to-date. However:</p>
+        <ul>
+            <li>Information is provided for general purposes only</li>
+            <li>We do not guarantee accuracy, completeness, or currency of information</li>
+            <li>Information should not be relied upon as professional advice</li>
+            <li>Calculators and tools provide estimates only</li>
+        </ul>
+        <p>For specific advice about your situation, please contact us directly.</p>
+
+        <h2>5. Third-Party Links</h2>
+        <p>This Website may contain links to third-party websites. We do not control or endorse these websites and are not responsible for their content, privacy practices, or terms of use. You access third-party websites at your own risk.</p>
+
+        <h2>6. User Content</h2>
+        <p>When you submit information through our contact forms or email:</p>
+        <ul>
+            <li>You grant us permission to use this information to respond to your inquiry</li>
+            <li>You represent that the information is accurate and lawful</li>
+            <li>You agree not to submit any harmful, offensive, or unlawful content</li>
+        </ul>
+        <p>We handle your personal information in accordance with our <a href="privacy.html" style="color: #f3d114; text-decoration: none;">Privacy Policy</a>.</p>
+
+        <h2>7. Service Information</h2>
+        <p>Information about our services on this Website is for informational purposes only. It does not constitute a binding offer or service agreement. Actual service terms are provided separately when you engage our services.</p>
+
+        <h2>8. Disclaimers</h2>
+        <p><strong>THE WEBSITE IS PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND.</strong></p>
+        <p>To the maximum extent permitted by law, we disclaim all warranties, express or implied, including:</p>
+        <ul>
+            <li>That the Website will be available, uninterrupted, or error-free</li>
+            <li>That defects will be corrected</li>
+            <li>That the Website is free from viruses or harmful components</li>
+            <li>The accuracy, reliability, or completeness of content</li>
+        </ul>
+
+        <h2>9. Limitation of Liability</h2>
+        <p><strong>TO THE MAXIMUM EXTENT PERMITTED BY LAW:</strong></p>
+        <ul>
+            <li>We are not liable for any damages arising from your use of the Website</li>
+            <li>This includes direct, indirect, incidental, consequential, or punitive damages</li>
+            <li>We are not liable for any loss of profits, revenue, data, or business opportunities</li>
+            <li>This applies whether based on contract, tort, strict liability, or otherwise</li>
+        </ul>
+        <p>Some jurisdictions do not allow limitation of liability, so these limitations may not apply to you.</p>
+
+        <h2>10. Indemnification</h2>
+        <p>You agree to indemnify and hold Bloom harmless from any claims, damages, or expenses arising from:</p>
+        <ul>
+            <li>Your use of the Website</li>
+            <li>Your violation of these Terms</li>
+            <li>Your violation of any laws or third-party rights</li>
+        </ul>
+
+        <h2>11. Changes to the Website and Terms</h2>
+        <p>We may:</p>
+        <ul>
+            <li>Update, modify, or discontinue the Website at any time without notice</li>
+            <li>Change these Terms at any time by posting updated Terms on this page</li>
+        </ul>
+        <p>Continued use of the Website after changes constitutes acceptance of the updated Terms. Check this page periodically for updates.</p>
+
+        <h2>12. Governing Law</h2>
+        <p>These Terms are governed by and construed in accordance with the laws of England and Wales. The courts of England and Wales have exclusive jurisdiction over any disputes arising from these Terms or your use of the Website.</p>
+
+        <h2>13. Severability</h2>
+        <p>If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions will continue in full force and effect.</p>
+
+        <h2>14. Entire Agreement</h2>
+        <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and Bloom regarding use of this Website.</p>
+
+        <h2>15. Contact Us</h2>
+        <p>If you have questions about these Terms of Use, please contact us at:</p>
+        <p>
+            <strong>Email:</strong> hello@joinbloom.tech<br>
+            <strong>Website:</strong> joinbloom.tech
+        </p>
+
+        <p style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #e5e5e5;"><em>By using this Website, you acknowledge that you have read, understood, and agree to be bound by these Terms of Use.</em></p>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Bloom</h3>
+                <p style="color: #999;">hello@joinbloom.tech</p>
+            </div>
+            <div class="footer-section">
+                <h3>Product</h3>
+                <a href="index.html#calculator">Calculator</a>
+                <a href="index.html#faq">FAQ</a>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Bloom. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-links a:not(.nav-cta)').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
