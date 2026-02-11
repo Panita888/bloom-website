@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Bloom</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a1a1a;
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        nav {
+            background: white;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 1.25rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover { color: #f3d114; }
+
+        .nav-cta {
+            background: #f3d114;
+            color: #000;
+            padding: 0.75rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .nav-cta:hover {
+            background: #d9b910;
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem 3rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #404040;
+            max-width: 800px;
+            line-height: 1.6;
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .section p {
+            font-size: 1.15rem;
+            color: #404040;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+        }
+
+        .highlight-box {
+            background: #fafafa;
+            border-left: 4px solid #f3d114;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            max-width: 800px;
+        }
+
+        .highlight-box p {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #f3d114;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-section a {
+            color: #999;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover { color: #f3d114; }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                BLOOM
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html" class="nav-cta">Book a Call</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>About Bloom</h1>
+        <p>Fractional pipeline management for consultancies that don't want proposals dying in silence.</p>
+    </section>
+
+    <section class="section">
+        <h2>Our Mission</h2>
+        <p>
+            Every consultancy works hard to win opportunities. You qualify leads, run discovery calls, craft tailored proposals. But when follow-up execution fails—not because your team is incompetent, but because they're busy—all that work evaporates.
+        </p>
+        <p>
+            Bloom exists to close that gap. We monitor your active pipeline daily, flag what's overdue, and ensure every deal reaches a clear outcome. We're not here to teach you how to sell. We're here to make sure the selling you already do doesn't get lost in execution gaps.
+        </p>
+        
+        <div class="highlight-box">
+            <p>
+                We believe no consultancy should lose revenue simply because someone forgot to follow up.
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Why Bloom?</h2>
+        <p>
+            We don't replace your team. We don't touch your prospects. We work behind the scenes to ensure the process you already have actually runs.
+        </p>
+        <p>
+            You get clear weekly reports showing what's active, what's overdue, and what's been closed. Your team gets gentle accountability. And you get confidence that proposals aren't quietly expiring.
+        </p>
+    </section>
+
+    <section class="section">
+        <h2>Who We Are</h2>
+        <p>
+            I'm Panita, an operator with a background in operations and process discipline. This service grew from seeing consultancies lose deals not because of poor sales skills, but because follow-up execution quietly failed.
+        </p>
+        <p>
+            If your pipeline has gaps you can't always see, we should talk.
+        </p>
+        <p>
+            <a href="contact.html" style="color: #f3d114; font-weight: 600; text-decoration: none;">Book a call →</a>
+        </p>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Bloom</h3>
+                <p style="color: #999;">Fractional Sales Management</p>
+            </div>
+            <div class="footer-section">
+                <h3>Product</h3>
+                <a href="index.html#calculator">Calculator</a>
+                <a href="index.html#faq">FAQ</a>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Bloom. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
