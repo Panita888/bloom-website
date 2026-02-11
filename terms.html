@@ -153,6 +153,94 @@
             margin-bottom: 2rem;
         }
 
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1a1a1a;
+            color: white;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: none;
+        }
+
+        .cookie-banner.show {
+            display: block;
+        }
+
+        .cookie-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .cookie-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .cookie-text p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .cookie-text a {
+            color: #f3d114;
+            text-decoration: underline;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .cookie-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .cookie-accept {
+            background: #f3d114;
+            color: #000;
+        }
+
+        .cookie-accept:hover {
+            background: #d9b910;
+        }
+
+        .cookie-decline {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .cookie-decline:hover {
+            border-color: white;
+        }
+
+        @media (max-width: 768px) {
+            .cookie-content {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .cookie-buttons {
+                flex-direction: column;
+            }
+        }
+
         footer {
             background: #1a1a1a;
             color: white;
@@ -361,6 +449,19 @@
         <p style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #e5e5e5;"><em>By using this Website, you acknowledge that you have read, understood, and agree to be bound by these Terms of Use.</em></p>
     </section>
 
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p>We use essential cookies to make our website work. We'd also like to set optional analytics cookies to help us improve it. <a href="privacy.html#cookies">Learn more about cookies</a></p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-accept" onclick="acceptCookies()">Accept All</button>
+                <button class="cookie-btn cookie-decline" onclick="declineCookies()">Essential Only</button>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <div class="footer-container">
             <div class="footer-section">
@@ -389,6 +490,31 @@
     </footer>
 
     <script>
+        // Cookie Banner Management
+        function checkCookieConsent() {
+            const consent = localStorage.getItem('cookieConsent');
+            if (!consent) {
+                document.getElementById('cookieBanner').classList.add('show');
+            }
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            localStorage.setItem('cookieConsentDate', new Date().toISOString());
+            document.getElementById('cookieBanner').classList.remove('show');
+            // If you add analytics later, initialize them here
+        }
+
+        function declineCookies() {
+            localStorage.setItem('cookieConsent', 'essential-only');
+            localStorage.setItem('cookieConsentDate', new Date().toISOString());
+            document.getElementById('cookieBanner').classList.remove('show');
+        }
+
+        // Check on page load
+        window.addEventListener('load', checkCookieConsent);
+
+        // Hamburger menu
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
         
