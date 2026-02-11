@@ -637,7 +637,7 @@
 <body>
     <nav>
         <div class="nav-container">
-            <a href="home.html" class="logo">
+            <a href="index.html" class="logo">
                 <img src="Bloom_logo.png" alt="Bloom" style="height: 45px;">
             </a>
             <div class="hamburger">
@@ -646,7 +646,7 @@
                 <span></span>
             </div>
             <div class="nav-links">
-                <a href="home.html">Home</a>
+                <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="contact.html" class="nav-cta">Book a Call</a>
             </div>
@@ -836,8 +836,8 @@
             </div>
             <div class="footer-section">
                 <h3>Product</h3>
-                <a href="home.html#calculator">Calculator</a>
-                <a href="home.html#faq">FAQ</a>
+                <a href="index.html#calculator">Calculator</a>
+                <a href="index.html#faq">FAQ</a>
             </div>
             <div class="footer-section">
                 <h3>Company</h3>
@@ -922,7 +922,7 @@
         });
 
         // Active page detection
-        const currentPage = window.location.pathname.split('/').pop() || 'home.html';
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         document.querySelectorAll('.nav-links a:not(.nav-cta)').forEach(link => {
             if (link.getAttribute('href') === currentPage) {
                 link.classList.add('active');
