@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloom | Fractional Sales Management for Consultancies</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #1a1a1a;
+            background: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        nav {
+            background: white;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 1.25rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .logo-text {
+            color: #f3d114;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #f3d114;
+        }
+
+        .nav-cta {
+            background: #f3d114;
+            color: #000;
+            padding: 0.75rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .nav-cta:hover {
+            background: #d9b910;
+            transform: translateY(-1px);
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: #000;
+        }
+
+        .hero-subtitle {
+            font-size: 1.35rem;
+            color: #404040;
+            max-width: 800px;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-primary {
+            background: #f3d114;
+            color: #000;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #d9b910;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #000;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            text-decoration: none;
+            border: 2px solid #e5e5e5;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            border-color: #000;
+        }
+
+        .risk-free {
+            color: #666;
+            font-size: 0.95rem;
+            margin-top: 0.75rem;
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-alt {
+            background: #fafafa;
+        }
+
+        .section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: #000;
+        }
+
+        .section-text {
+            font-size: 1.2rem;
+            color: #404040;
+            max-width: 800px;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .stat-box {
+            background: white;
+            border-left: 4px solid #f3d114;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            max-width: 800px;
+        }
+
+        .stat-box p {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 900px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #e5e5e5;
+            transition: all 0.2s;
+        }
+
+        .feature-card:hover {
+            border-color: #f3d114;
+            box-shadow: 0 4px 12px rgba(243, 209, 20, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #000;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .how-it-works-intro {
+            font-size: 1.25rem;
+            color: #404040;
+            margin-bottom: 2rem;
+            max-width: 700px;
+        }
+
+        .bottom-note {
+            margin-top: 2.5rem;
+            padding: 1.5rem;
+            background: #fafafa;
+            border-radius: 8px;
+            max-width: 800px;
+        }
+
+        .bottom-note p {
+            font-size: 1.1rem;
+            color: #404040;
+            line-height: 1.6;
+        }
+
+        .calculator-section {
+            background: #1a1a1a;
+            color: white;
+            padding: 5rem 2rem;
+        }
+
+        .calculator-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .calculator-section h2 {
+            color: #f3d114;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .calc-intro {
+            text-align: center;
+            color: #999;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .calc-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .calc-input label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: white;
+        }
+
+        .calc-input input {
+            width: 100%;
+            padding: 0.75rem;
+            background: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .calc-input small {
+            color: #999;
+            font-size: 0.9rem;
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            outline: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+            margin-top: 0.75rem;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #f3d114;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #f3d114;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+
+        .calc-result {
+            background: #f3d114;
+            padding: 2.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .calc-result-amount {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: #000;
+            margin-bottom: 0.75rem;
+        }
+
+        .calc-result-text {
+            font-size: 1.1rem;
+            color: #000;
+            font-weight: 500;
+        }
+
+        .calc-cta {
+            text-align: center;
+            margin-top: 2rem;
+            color: #999;
+        }
+
+        .calc-cta strong {
+            color: white;
+        }
+
+        .faq-item {
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.25rem 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            color: #000;
+            font-size: 1.05rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: #f3d114;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '−';
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+            color: #666;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.25rem;
+            max-height: 500px;
+        }
+
+        .final-cta {
+            background: #f3d114;
+            padding: 5rem 2rem;
+        }
+
+        .final-cta-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: #000;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .final-cta p {
+            font-size: 1.25rem;
+            color: #000;
+            margin-bottom: 2rem;
+        }
+
+        .final-cta .btn-primary {
+            background: #000;
+            color: #f3d114;
+        }
+
+        .final-cta .btn-primary:hover {
+            background: #1a1a1a;
+        }
+
+        .final-cta-note {
+            margin-top: 1.5rem;
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #f3d114;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-section a {
+            color: #999;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: #f3d114;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="Bloom_logo.png" alt="Bloom" style="height: 45px;">
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html" class="nav-cta">Book a Call</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Proposals going quiet after you send them?</h1>
+        <p class="hero-subtitle">
+            When you send a £20k+ proposal, you need confidence it won't die in silence. We monitor your active pipeline daily, flag what's overdue, and ensure every deal reaches a clear outcome—won or lost, never forgotten.
+        </p>
+        <div class="cta-buttons">
+            <a href="#calculator" class="btn-primary">See What Lost Proposals Cost You</a>
+            <a href="contact.html" class="btn-secondary">Book a 15-min Call</a>
+        </div>
+        <p class="risk-free">No long-term contracts • Cancel anytime</p>
+    </section>
+
+    <section class="section section-alt">
+        <div>
+            <h2>Every missed follow-up costs you revenue</h2>
+            <p class="section-text">
+                You've already invested time qualifying the opportunity, understanding their needs, and crafting a tailored proposal. But if follow-up doesn't happen consistently, that work evaporates.
+            </p>
+            <p class="section-text">
+                Most founders are juggling strategy, delivery, and growth—all while trying to keep visibility on deals without micromanaging. You've built a team precisely so you don't have to personally chase every proposal. But without clear pipeline discipline, opportunities slip through gaps you can't always see.
+            </p>
+            <div class="stat-box">
+                <p>
+                    <strong>Research shows 60% of proposals never get a response without consistent follow-up.</strong> And 80% of deals require 5+ touchpoints to close—but most sales teams stop after one or two.
+                </p>
+            </div>
+            <p class="section-text">
+                We remove the uncertainty. You get clear visibility on what's really happening, without having to personally check every deal.
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>How fractional sales management works</h2>
+        <p class="how-it-works-intro">We're your fractional sales manager, focused on one thing: execution discipline.</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Daily Pipeline Discipline</h3>
+                <p>
+                    We check every active proposal and opportunity daily. When follow-up hasn't happened or next steps are unclear, we flag it immediately—so nothing slips without you knowing.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Founder Visibility</h3>
+                <p>
+                    Weekly pipeline reports show what's active, what's overdue, what's closed. You get confidence in what's really happening without personally checking every deal.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✅</div>
+                <h3>Accurate Forecasting</h3>
+                <p>
+                    When your pipeline reflects reality (not hope), your revenue forecasts become reliable. You'll know what's genuinely closing vs what's stuck.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤝</div>
+                <h3>Team Accountability</h3>
+                <p>
+                    We provide gentle, async accountability to your team. No micromanagement—just clear ownership and closure on every opportunity.
+                </p>
+            </div>
+        </div>
+        <div class="bottom-note">
+            <p>
+                You keep full control of strategy, messaging, and client relationships. We're the accountability layer that ensures your process actually runs.
+            </p>
+        </div>
+    </section>
+
+    <section class="calculator-section" id="calculator">
+        <div class="calculator-container">
+            <h2>What are lost proposals costing you?</h2>
+            <p class="calc-intro">Use our calculator to see how much revenue slips through gaps each quarter</p>
+            
+            <div class="calc-input">
+                <label for="proposals">Proposals sent per quarter</label>
+                <input type="number" id="proposals" value="20" min="1">
+                <small>Roughly how many tailored proposals do you send?</small>
+            </div>
+
+            <div class="calc-input">
+                <label for="value">Average proposal value (£)</label>
+                <input type="number" id="value" value="40000" min="1">
+                <small>Deal size when they say yes</small>
+            </div>
+
+            <div class="calc-input">
+                <label for="lost">Proposals lost to follow-up gaps: <span id="lostValue">10</span>%</label>
+                <input type="range" id="lost" min="1" max="20" value="10">
+                <small>Conservative estimates suggest 5-15% of proposals don't reach a clear decision due to inconsistent follow-up</small>
+            </div>
+
+            <div class="calc-result">
+                <div class="calc-result-amount" id="resultAmount">£80,000</div>
+                <div class="calc-result-text">in potential revenue drifting away each quarter</div>
+            </div>
+
+            <div class="calc-cta">
+                <p><strong>Book a call and stop losing deals to execution gaps</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">Does this guarantee more closed deals?</div>
+            <div class="faq-answer">
+                We remove the execution gap that causes deals to go cold. You'll close more because fewer opportunities die from inattention—but we don't touch your sales skill or messaging.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Do you contact our prospects?</div>
+            <div class="faq-answer">
+                No. We work internally with your team to ensure follow-ups happen. We never touch client communication.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How is this different from a CRM?</div>
+            <div class="faq-answer">
+                CRMs remind. We verify action happened. If your CRM says "follow up on Tuesday" and Tuesday passes with nothing logged, we flag it. CRMs nudge; we enforce.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Does it replace our sales team?</div>
+            <div class="faq-answer">
+                No. We make sure your existing process actually runs. Your team still sells—we just close the discipline gap.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What does this cost?</div>
+            <div class="faq-answer">
+                £1,500-2,000/month for post-proposal coverage, £2,500-3,000/month for full pipeline. Exact pricing depends on volume. Most clients find it pays for itself if we catch even one near-miss per year.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What if it doesn't work for us?</div>
+            <div class="faq-answer">
+                No long-term contracts. If it's not delivering value, cancel anytime. Most clients expand scope once they see how many gaps we catch.
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="final-cta-container">
+            <h2>Ready to stop losing deals?</h2>
+            <p>
+                Book a 15-minute call and we'll show you exactly how we'd monitor your pipeline. No pitch, no pressure—just a clear explanation of what we'd do.
+            </p>
+            <a href="contact.html" class="btn-primary">Book Your Call</a>
+            <p class="final-cta-note">No long-term contracts • Cancel anytime</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Bloom</h3>
+                <p style="color: #999;">Fractional Sales Management</p>
+            </div>
+            <div class="footer-section">
+                <h3>Product</h3>
+                <a href="#calculator">Calculator</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Bloom. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.parentElement;
+                const wasActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!wasActive) item.classList.add('active');
+            });
+        });
+
+        function updateCalc() {
+            const proposals = parseInt(document.getElementById('proposals').value) || 0;
+            const value = parseInt(document.getElementById('value').value) || 0;
+            const lost = parseInt(document.getElementById('lost').value) || 0;
+            document.getElementById('lostValue').textContent = lost;
+            const total = (proposals * lost / 100) * value;
+            document.getElementById('resultAmount').textContent = '£' + total.toLocaleString('en-GB');
+        }
+
+        document.getElementById('proposals').addEventListener('input', updateCalc);
+        document.getElementById('value').addEventListener('input', updateCalc);
+        document.getElementById('lost').addEventListener('input', updateCalc);
+        updateCalc();
+    </script>
+</body>
+</html>
