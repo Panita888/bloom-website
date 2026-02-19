@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Bloom</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a1a1a;
+            background: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        nav {
+            background: white;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 1.25rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { text-decoration: none; }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: #f3d114; }
+
+        .nav-links a.active {
+            color: #f3d114;
+            font-weight: 600;
+        }
+
+        .nav-cta {
+            background: #f3d114;
+            color: #000;
+            padding: 0.75rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .nav-cta:hover {
+            background: #d9b910;
+            transform: translateY(-1px);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #1a1a1a;
+            transition: all 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+
+            .nav-links {
+                position: fixed;
+                top: 73px;
+                right: -100%;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                transition: right 0.3s;
+                gap: 1.5rem;
+            }
+
+            .nav-links.active { right: 0; }
+            .nav-cta { width: 100%; text-align: center; }
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem 3rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: #000;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #404040;
+            line-height: 1.7;
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section h2 {
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #000;
+        }
+
+        .section p {
+            font-size: 1.15rem;
+            color: #404040;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-box {
+            background: #fafafa;
+            border-left: 4px solid #f3d114;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .highlight-box p {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #1a1a1a;
+            margin-bottom: 0;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid #e5e5e5;
+            margin: 0 2rem;
+        }
+
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1a1a1a;
+            color: white;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: none;
+        }
+
+        .cookie-banner.show { display: block; }
+
+        .cookie-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .cookie-text { flex: 1; min-width: 300px; }
+
+        .cookie-text p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .cookie-text a { color: #f3d114; text-decoration: underline; }
+
+        .cookie-buttons { display: flex; gap: 1rem; }
+
+        .cookie-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .cookie-accept { background: #f3d114; color: #000; }
+        .cookie-accept:hover { background: #d9b910; }
+
+        .cookie-decline {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .cookie-decline:hover { border-color: white; }
+
+        @media (max-width: 768px) {
+            .cookie-content { flex-direction: column; align-items: stretch; }
+            .cookie-buttons { flex-direction: column; }
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #f3d114;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-section a {
+            color: #999;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover { color: #f3d114; }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="Bloom_logo.png" alt="Bloom" style="height: 45px;">
+            </a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="contact.html" class="nav-cta">Get In Touch</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>About Bloom</h1>
+        <p>We are a Brighton-based company focused on the business of running aesthetic, wellness and beauty clinics, through research, publishing and the technology we build for the sector.</p>
+    </section>
+
+    <hr class="divider">
+
+    <section class="section">
+        <h2>Why we exist</h2>
+        <p>
+            Aesthetic, wellness and beauty clinic owners are entrepreneurs. They have built skilled businesses from the ground up, and they make complex commercial decisions every day alongside the clinical work.
+        </p>
+        <p>
+            Most coverage of this sector focuses on treatments, consumer trends and patient outcomes. The strategic and operational decisions that go into building these businesses get far less attention. That is the gap Bloom exists to fill.
+        </p>
+        <div class="highlight-box">
+            <p>We believe the best technology for any sector comes from genuinely understanding how the businesses in it are built and run, not from assuming you already know.</p>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="section">
+        <h2>How we work</h2>
+        <p>
+            We speak directly with clinic owners and managers about the business side of their work: how they structure their teams, how they approach growth, how they think about the tools and systems they use. We publish that research as features and articles, and it forms the foundation for the technology we develop.
+        </p>
+        <p>
+            We focus exclusively on aesthetic, wellness and beauty clinics, which means we develop real familiarity with how these businesses operate rather than working across many different sectors at once.
+        </p>
+    </section>
+
+    <hr class="divider">
+
+    <section class="section">
+        <h2>Want to be involved?</h2>
+        <p>
+            If you run an aesthetic, wellness or beauty clinic and would be open to sharing your perspective on the business side of what you do, we would genuinely love to hear from you.
+        </p>
+        <p>
+            <a href="contact.html" style="color: #f3d114; font-weight: 600; text-decoration: none;">Get in touch</a>
+        </p>
+    </section>
+
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p>We use essential cookies to make our website work. We'd also like to set optional analytics cookies to help us improve it. <a href="privacy.html#cookies">Learn more about cookies</a></p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-accept" onclick="acceptCookies()">Accept All</button>
+                <button class="cookie-btn cookie-decline" onclick="declineCookies()">Essential Only</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Bloom</h3>
+                <a href="mailto:hello@joinbloom.tech" style="color: #f3d114; text-decoration: none; display: block;">hello@joinbloom.tech</a>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Bloom. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function checkCookieConsent() {
+            const consent = localStorage.getItem('cookieConsent');
+            if (!consent) {
+                document.getElementById('cookieBanner').classList.add('show');
+            }
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            localStorage.setItem('cookieConsentDate', new Date().toISOString());
+            document.getElementById('cookieBanner').classList.remove('show');
+        }
+
+        function declineCookies() {
+            localStorage.setItem('cookieConsent', 'essential-only');
+            localStorage.setItem('cookieConsentDate', new Date().toISOString());
+            document.getElementById('cookieBanner').classList.remove('show');
+        }
+
+        window.addEventListener('load', checkCookieConsent);
+
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
